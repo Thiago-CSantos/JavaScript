@@ -10,9 +10,12 @@
 <body>
     <h1>Olá, mundo!</h1>
     <script>
-        window.alert('Hello World');
-        window.prompt('Confirmar')
-         window.confirm("confirme")
+        
+        var a = parseFloat(window.prompt('numero1:'))
+        var b = Number.parseFloat( window.prompt('numero2:'))
+        var s = a+b
+
+        window.alert('soma de a + b: '+ String(s));
         
     </script>
 </body>
