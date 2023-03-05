@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula04-ex01</title>
+
+<style>
+    body{
+        background-color: brown;
+        color: white;
+        font: normal 18pt Arial;
+    }
+</style>
+
+</head>
+<body>
+    <h1 name="porNome">Iniciando estudos com DOM</h1>
+    <p class="porClass">aqui vai o resultado</p>
+    <p id="porID">Aprendendo a usar o <strong>DOM</strong></p>
+    <div>Clique aqui</div>
+    <br>
+    <script>
+        
+        var a = document.getElementsByName('porNome')[0]
+        a.style.background = 'red'
+
+        var b = document.getElementsByClassName('porClass')[0]
+        b.style.color= 'black'
+
+        var c = document.getElementById('porID')
+        document.writeln(c.innerHTML+' aqui foi pelo getElementById')
+        document.writeln()
+        var d = document.querySelector('p#porID')
+        document.writeln(d.innerHTML)
+
+    </script>
+</body>
+</html>
