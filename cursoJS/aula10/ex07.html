@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula04-ex01</title>
+
+    <style>
+        body {
+            background-color: brown;
+            color: white;
+            font: normal 18pt Arial;
+        }
+
+        #area {
+            background-color: black;
+            color: white;
+            font: normal 22pt Arial;
+            width: 30vw;
+            height: 30vw;
+            text-align: center;
+            line-height: 30vw;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Somando valores</h1>
+    <input type="number" name="in1" id="in1">+
+    <input type="number" name="in2" id="in2">
+    <input type="button" value="Somar" onclick="somar()">
+    <p id="mostraResult"> Resultado:</p>
+
+    <script>
+        function somar(){
+            var n1 = document.getElementById('in1')
+            var n2 = document.querySelector('input#in2')
+
+            var n3 = Number.parseFloat(n1.value)
+            var n4 = Number(n2.value)
+
+            var result = n3 + n4
+
+            var mostrar = document.getElementById('mostraResult')
+            mostrar.innerHTML =`A soma entre ${n3} e ${n4} é igual: ${result}`
+        }
+    </script>
+</body>
+
+</html>
