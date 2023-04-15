@@ -1,1 +1,1 @@
-# JavaScript-React
+# JavaScript
