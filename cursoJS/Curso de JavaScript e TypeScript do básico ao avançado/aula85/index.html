@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calcule seu IMC</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <section class="container">
+    <h2>Validando um Formulário</h2>
+
+    <ul>
+      <li>Nenhum campo pode estar vazio</li>
+      <li>Usuário só pode conter letras e/ou números</li>
+      <li>Usuário devera ter entre 3 e 12 caracteres</li>
+      <li>Senha precisa ter entre 6 e 12 caracteres</li>
+    </ul>
+
+    <form action="/" method="post" class="formulario validar">
+      <label for="Nome">Nome:</label><br>
+      <input type="text" class="nome validar"><br>
+      
+      <label for="">Sobrenome:</label><br>
+      <input type="text" class="sobrenome validar"><br>
+
+      <label for="">CPF:</label><br>
+      <input type="text" class="cpf validar"><br>
+
+      <label for="">Usuário:</label><br>
+      <input type="text" class="ususario validar"><br>
+
+      <label for="">Senha:</label><br>
+      <input type="text" class="senha validar"><br>
+
+      <label for="">Repetir Senha:</label><br>
+      <input type="text" class="repetir-senha validar"><br>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+
+  </section>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
