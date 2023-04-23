@@ -10,8 +10,8 @@ class ValidaFormulario {
     })
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
+  handleSubmit(event) {
+    event.preventDefault()
 
     const camposValidos = this.checaCampos()
     const senhasValidas = this.senhasSaoValidas()
