@@ -28,20 +28,21 @@ document.addEventListener('click', (e) => {
   }
 })
 
-function carregaPagina(el) {
+async function carregaPagina(el) {
   const href = el.getAttribute('href')
   console.log(href);
 
-  const objConfig ={
+  const objConfig = {
     method: 'GET',
     url: href,
   }
 
-  ajax_Request(objConfig).then((response) => {
+  try {
+    const response = await ajax_Request(objConfig)
     carregarResultado(response)
-  }).catch((error) => {
-    console.log(error);
-  })
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function carregarResultado(response) {
