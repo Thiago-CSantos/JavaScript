@@ -1,6 +1,4 @@
-fetch('pessoas.json')
-  .then((respota) => respota.json())
-  .then((json) => carregarElementosPagina(json))
+axios('pessoas.json').then(resposta => carregarElementosPagina(resposta.data))
 
 function carregarElementosPagina(json) {
 
@@ -15,7 +13,7 @@ function carregarElementosPagina(json) {
     tr.appendChild(td)
 
     td = document.createElement('td')
-    td.innerHTML = '|' + pessoa.idade
+    td.innerHTML = '|' + pessoa.idade + '|'
     tr.appendChild(td)
 
 
