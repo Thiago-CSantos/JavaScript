@@ -1,35 +1,32 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-    node: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:prettier/recommended',
-  ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+    env: {
+        browser: true,
+        es2021: true,
+        node: true,
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: ['react', 'prettier', 'react-hooks'],
-  settings: {
-    react: {
-      version: 'detect',
+    extends: [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended",
+    ],
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        ecmaVersion: "latest",
+        requireConfigFile: false,
+        sourceType: "module",
     },
-  },
-  rules: {
-    'react/react-in-jsx-scope': 'off',
-  },
+    plugins: ["react", "prettier", "react-hooks"],
+    rules: {
+        "prettier/prettier": 2,
+        "react/jsx-filename-extension": 0,
+        "import/prefer-default-export": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react/state-in-constructor": 0,
+        "no-undef": "off",
+    },
 };
