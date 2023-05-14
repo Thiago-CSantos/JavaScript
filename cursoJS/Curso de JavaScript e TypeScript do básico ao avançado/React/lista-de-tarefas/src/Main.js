@@ -9,7 +9,7 @@ export default class Main extends Component {
 
     state = {
         novaTarefa: '',
-        trefas: ['tomar café', 'Beber água', 'estudar'],
+        tarefas: ['tomar café', 'Beber água', 'estudar'],
     };
 
     handleChange = (e) => {
