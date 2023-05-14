@@ -3,14 +3,32 @@ import React, { Component } from "react";
 import "./Main.css";
 
 // Icons para Form
-import { FaPlusCircle } from "react-icons/fa";
+import { FaPlusCircle, FaEdit, FaWindowClose } from "react-icons/fa";
+
 
 export default class Main extends Component {
 
     state = {
         novaTarefa: '',
-        tarefas: ['tomar café', 'Beber água', 'estudar'],
+        tarefas: [],
     };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const { tarefas } = this.state;
+        let { novaTarefa } = this.state;
+
+        novaTarefa = novaTarefa.trim();
+        if (tarefas.indexOf(novaTarefa) != -1) {
+            return;
+        }
+        const copiaNovaTarefas = [...tarefas];
+
+        this.setState({
+            tarefas: [...copiaNovaTarefas, novaTarefa]
+        });
+
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -26,14 +44,20 @@ export default class Main extends Component {
         return (
             <div className="main">
                 <h1>Lista de tarefa</h1>
-                <form action="#" className="formulario">
+                <form onSubmit={this.handleSubmit} action="#" className="formulario">
                     <input onChange={this.handleChange} type="text" value={novaTarefa} />
                     <button type="submit" >{<FaPlusCircle />}</button>
                 </form>
 
                 <ul className="tarefas">
                     {tarefas.map((value) => (
-                        <li key={tarefas}> {value} </li>
+                        <li key={value}>
+                            {value}
+                            <span>
+                                <FaEdit className="edit" />
+                                <FaWindowClose className="close" />
+                            </span>
+                        </li>
                     ))}
                 </ul>
             </div>
