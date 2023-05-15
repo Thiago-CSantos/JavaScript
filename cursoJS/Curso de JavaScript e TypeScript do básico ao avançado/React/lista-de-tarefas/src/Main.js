@@ -11,11 +11,12 @@ export default class Main extends Component {
     state = {
         novaTarefa: '',
         tarefas: [],
+        i: -1,
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { tarefas } = this.state; // outra forma de escrever const tarefas = this.state.tarefas
+        const { tarefas, i } = this.state; // outra forma de escrever const tarefas = this.state.tarefas
         let { novaTarefa } = this.state;
 
         novaTarefa = novaTarefa.trim();
@@ -24,9 +25,21 @@ export default class Main extends Component {
         }
         const copiaNovaTarefas = [...tarefas];
 
-        this.setState({
-            tarefas: [...copiaNovaTarefas, novaTarefa]
-        });
+        if (i == -1) {
+            this.setState({
+                tarefas: [...copiaNovaTarefas, novaTarefa],
+                novaTarefa: ""
+            });
+        } else {
+            const tarefasNovas = [...tarefas]
+            tarefasNovas[i] = novaTarefa
+
+            this.setState({
+                tarefas: [...tarefasNovas],
+                i: -1,
+                novaTarefa: ""
+            })
+        }
 
     }
 
@@ -37,12 +50,19 @@ export default class Main extends Component {
     }
 
     handleEdit = (e, index) => {
+
+        const tarefas = this.state.tarefas
+
+        this.setState({
+            i: index,
+            novaTarefa: tarefas[index],
+        })
         console.log(index);
     }
 
     handleClose = (e, index) => {
 
-        const { tarefas } = this.state.tarefas // const tarefas = this.state.tarefas
+        const { tarefas } = this.state // const tarefas = this.state.tarefas
         const novasTarefas = [...tarefas]
         novasTarefas.splice(index, 1)
 
