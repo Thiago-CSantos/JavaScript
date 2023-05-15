@@ -15,7 +15,7 @@ export default class Main extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { tarefas } = this.state;
+        const { tarefas } = this.state; // outra forma de escrever const tarefas = this.state.tarefas
         let { novaTarefa } = this.state;
 
         novaTarefa = novaTarefa.trim();
@@ -36,6 +36,22 @@ export default class Main extends Component {
         });
     }
 
+    handleEdit = (e, index) => {
+        console.log(index);
+    }
+
+    handleClose = (e, index) => {
+
+        const { tarefas } = this.state.tarefas // const tarefas = this.state.tarefas
+        const novasTarefas = [...tarefas]
+        novasTarefas.splice(index, 1)
+
+        this.setState({
+            tarefas: [...novasTarefas]
+        })
+
+        console.log("Close", index);
+    }
 
     render() {
         // criação de uma variavel novaTarefa
@@ -50,12 +66,12 @@ export default class Main extends Component {
                 </form>
 
                 <ul className="tarefas">
-                    {tarefas.map((value) => (
+                    {tarefas.map((value, index) => (
                         <li key={value}>
                             {value}
                             <span>
-                                <FaEdit className="edit" />
-                                <FaWindowClose className="close" />
+                                <FaEdit className="edit" onClick={(e) => this.handleEdit(e, index)} />
+                                <FaWindowClose className="close" onClick={(e) => this.handleClose(e, index)} />
                             </span>
                         </li>
                     ))}
