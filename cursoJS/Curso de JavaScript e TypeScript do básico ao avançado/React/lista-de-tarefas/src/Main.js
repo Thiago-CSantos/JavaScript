@@ -14,6 +14,33 @@ export default class Main extends Component {
         i: -1,
     };
 
+    componentDidMount() {
+        const enviarTarefas = JSON.parse(localStorage.getItem("Chave:"))
+
+        if(!enviarTarefas){
+            return;
+        }
+
+        this.setState({
+            tarefas: enviarTarefas
+        })
+    }
+    // prevProps- propriedades anteriores
+    // prevState - estado anterior
+    componentDidUpdate(prevProps, prevState) {
+
+        const tarefas = this.state.tarefas
+
+        if(tarefas == prevState.tarefas){
+            return;
+        }
+
+        localStorage.setItem("Chave:", JSON.stringify(tarefas))
+        console.log(prevState.tarefas);
+    }
+
+
+
     handleSubmit = (e) => {
         e.preventDefault();
         const { tarefas, i } = this.state; // outra forma de escrever const tarefas = this.state.tarefas
