@@ -1,10 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from "react";
+
 import "./Main.css";
 import Form from "./Form/form";
-// Icons para Form
-import { FaEdit, FaWindowClose } from "react-icons/fa";
-
+import Tarefas from "./Tarefas/tarefas";
 
 export default class Main extends Component {
 
@@ -108,21 +107,15 @@ export default class Main extends Component {
             <div className="main">
                 <h1>Lista de tarefa</h1>
                 <Form
-                handleSubmit={this.handleSubmit}
-                handleChange={this.handleChange}
-                novaTarefa = {novaTarefa}
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
+                    novaTarefa={novaTarefa}
                 />
-                <ul className="tarefas">
-                    {tarefas.map((value, index) => (
-                        <li key={value}>
-                            {value}
-                            <span>
-                                <FaEdit className="edit" onClick={(e) => this.handleEdit(e, index)} />
-                                <FaWindowClose className="close" onClick={(e) => this.handleClose(e, index)} />
-                            </span>
-                        </li>
-                    ))}
-                </ul>
+                <Tarefas
+                    handleEdit={this.handleEdit}
+                    handleClose={this.handleClose}
+                    tarefas={tarefas}
+                />
             </div>
         );
     }
