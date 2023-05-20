@@ -12,31 +12,6 @@
     text-align: center;
 }
 
-.formulario {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.formulario input[type="text"] {
-    height: 40px;
-    min-width: 80%;
-    padding: 0 20px;
-    border: 1px solid #ccc;
-}
-
-.formulario button[type="submit"] {
-    border: none;
-    height: 40px;
-    width: 40px;
-    background-color: #f04c64;
-    color: aliceblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .tarefas {
     margin-top: 30px;
 }
@@ -72,7 +47,7 @@
     transition: all 600ms;
 }
 
-.tarefas li span{
+.tarefas li span {
     display: flex;
     align-items: center;
 }

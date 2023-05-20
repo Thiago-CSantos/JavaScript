@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from "react";
 import "./Main.css";
-
+import Form from "./Form/form";
 // Icons para Form
-import { FaPlusCircle, FaEdit, FaWindowClose } from "react-icons/fa";
+import { FaEdit, FaWindowClose } from "react-icons/fa";
 
 
 export default class Main extends Component {
@@ -17,7 +17,7 @@ export default class Main extends Component {
     componentDidMount() {
         const enviarTarefas = JSON.parse(localStorage.getItem("Chave:"))
 
-        if(!enviarTarefas){
+        if (!enviarTarefas) {
             return;
         }
 
@@ -31,7 +31,7 @@ export default class Main extends Component {
 
         const tarefas = this.state.tarefas
 
-        if(tarefas == prevState.tarefas){
+        if (tarefas == prevState.tarefas) {
             return;
         }
 
@@ -107,11 +107,11 @@ export default class Main extends Component {
         return (
             <div className="main">
                 <h1>Lista de tarefa</h1>
-                <form onSubmit={this.handleSubmit} action="#" className="formulario">
-                    <input onChange={this.handleChange} type="text" value={novaTarefa} />
-                    <button type="submit" >{<FaPlusCircle />}</button>
-                </form>
-
+                <Form
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                novaTarefa = {novaTarefa}
+                />
                 <ul className="tarefas">
                     {tarefas.map((value, index) => (
                         <li key={value}>
